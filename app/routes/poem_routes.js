@@ -25,10 +25,21 @@ router.get('/poems', requireToken, (req, res, next) => {
 // SHOW
 // GET /poems/<ID>
 router.get('/poems/:id', requireToken, (req, res, next) => {
-  // req.params.id will be set to the `:id` passed
+  // req.params.id will is set to the `:id` passed
   Poem.findById(req.params.id)
     // custom error handler for 404
     .then(handle404)
     .then(poem => res.status(200).json({ poem: poem.toObject() }))
+    .catch(next)
+})
+
+// CREATE
+// POST /poems
+router.post('/poems', requireToken, (req, res, next) => {
+  Poem.create(req.body.poem)
+    .then(poem => {
+      res.status(201).json({ poem: poem.toObject() })
+    })
+    // if theres an error, sent it to error handler along with the 'res` object
     .catch(next)
 })
