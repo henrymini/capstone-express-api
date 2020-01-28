@@ -56,4 +56,16 @@ router.patch('/poems/:id', requireToken, removeBlanks, (req, res, next) => {
     .catch(next)
 })
 
+// DESTROY
+// DELETE /poems/<ID>
+router.delete('/poems/:id', requireToken, (req, res, next) => {
+  Poem.findById(req.params.id)
+    .then(handle404)
+    .then(poem => {
+      poem.deleteOne()
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
+
 module.exports = router
