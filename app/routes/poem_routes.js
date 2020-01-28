@@ -40,7 +40,6 @@ router.post('/poems', requireToken, (req, res, next) => {
     .then(poem => {
       res.status(201).json({ poem: poem.toObject() })
     })
-    // if theres an error, sent it to error handler along with the 'res` object
     .catch(next)
 })
 
