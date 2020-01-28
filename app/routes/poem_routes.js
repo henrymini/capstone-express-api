@@ -7,8 +7,8 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 const customErrors = require('../../lib/custom_errors')
-
 const handle404 = customErrors.handle404
+const removeBlanks = require('../../lib/remove_blank_fields')
 
 // INDEX
 // GET /poems
@@ -43,3 +43,17 @@ router.post('/poems', requireToken, (req, res, next) => {
     // if theres an error, sent it to error handler along with the 'res` object
     .catch(next)
 })
+
+// UPDATE
+// PATCH /poems/<ID>
+router.patch('/poems/:id', requireToken, removeBlanks, (req, res, next) => {
+  Poem.findById(req.params.id)
+    .then(handle404)
+    .then(poem => {
+      return poem.updateOne(req.body.poem)
+    })
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
+
+module.exports = router
