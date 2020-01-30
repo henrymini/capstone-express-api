@@ -1,3 +1,5 @@
+# Description
+
 This is the front end for my poetry capstone project. It acts as a private forum/web storage for a poetry collection. Being a private collection, a user must first sign in using the link on the navbar in the top right corner. A sign up feature is provided for new users. Once signed in, the navbar will change to display the option to change the accounts password as well as an option to sign out. The user will also be presented with titles and matching authors for a collection of poems and similar works. Clicking on one will bring up the body of the piece, along with the information underneath informing the user of the year of original publication. Authenticated users have the option of adding a piece to the collection by clicking 'Make an Addition' on the navbar. They will then be presented with a form to input the necessary information. Authenticated users have the option of editing or deleting pieces that they have created themselves.
 
 
