@@ -50,7 +50,7 @@ router.post('/poems', requireToken, (req, res, next) => {
 // UPDATE
 // PATCH /poems/<ID>
 router.patch('/poems/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.example.owner
+  delete req.body.poem.owner
   Poem.findById(req.params.id)
     .then(handle404)
     .then(poem => {
