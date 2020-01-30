@@ -35,10 +35,12 @@ For poems, it contains INDEX for calling access to all of the poems, SHOW for ca
 
 First download this repo to your computer, open in the terminal and run ```npm install``` to install the necessary packages. Next use ```npm run server``` to initiate the development server on your computer. A production server can be hosted on Heroku for a more permanent and publicly accessable version.
 
-# ERD and Wireframe
+#### ERD and Wireframe
 Both can be found at this link: https://imgur.com/a/KZBB3ZQ
 
 </hr>
+
+#### Process 
 
 For this project I used React.js for the front end and Express.js and Mongoose for the back end. Heroku was used to deploy the back end and GitHub pages was used for the front end. I used Atom as a text editor, and Node.js with npm as a package manager.
 
